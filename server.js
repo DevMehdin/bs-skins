@@ -1,6 +1,7 @@
 const express = require("express");
 // const bodyParser = require("body-parser"); /* deprecated */
 const cors = require("cors");
+const path = require ("path");
 
 const app = express();
 
@@ -15,7 +16,7 @@ app.use(express.json());  /* bodyParser.json() is deprecated */
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));   /* bodyParser.urlencoded() is deprecated */
-
+//app.use(express.static('/',path.join(__dirname,'app')));
 const db = require("./app/models");
 db.mongoose
   .connect(db.url, {
